@@ -23,7 +23,7 @@ const Inventario = () => {
 
     const fetchInventario = async () => {
         try {
-            const response = await axios.get('http://localhost:8006/api/inventario');
+            const response = await axios.get('http://18.221.39.240:8006/api/inventario');
             setInventario(response.data);
         } catch (error) {
             console.error('Error fetching inventario:', error);
@@ -33,7 +33,7 @@ const Inventario = () => {
 
     const fetchLibros = async () => {
         try {
-            const response = await axios.get('http://localhost:8005/api/libros');
+            const response = await axios.get('http://18.221.39.240:8005/api/libros');
             setLibros(response.data);
         } catch (error) {
             console.error('Error fetching libros:', error);
@@ -57,9 +57,9 @@ const Inventario = () => {
     const handleSave = async () => {
         try {
             if (editing) {
-                await axios.put(`http://localhost:8006/api/inventario/editar/${currentInventario.id}`, currentInventario);
+                await axios.put(`http://18.221.39.240:8006/api/inventario/editar/${currentInventario.id}`, currentInventario);
             } else {
-                await axios.post('http://localhost:8006/api/inventario/crear', currentInventario);
+                await axios.post('http://18.221.39.240:8006/api/inventario/crear', currentInventario);
             }
             fetchInventario();
             handleClose();
@@ -76,7 +76,7 @@ const Inventario = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:8006/api/inventario/eliminar/${id}`);
+            await axios.delete(`http://18.221.39.240:8006/api/inventario/eliminar/${id}`);
             fetchInventario();
         } catch (error) {
             console.error('Error deleting inventario:', error);

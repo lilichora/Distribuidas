@@ -27,7 +27,7 @@ const Prestamos = () => {
 
     const fetchPrestamos = async () => {
         try {
-            const response = await axios.get('http://localhost:8002/api/prestamos');
+            const response = await axios.get('http://18.221.39.240:8002/api/prestamos');
             setPrestamos(response.data);
         } catch (error) {
             console.error('Error fetching prestamos:', error);
@@ -37,7 +37,7 @@ const Prestamos = () => {
 
     const fetchUsuarios = async () => {
         try {
-            const response = await axios.get('http://localhost:8001/api/usuarios');
+            const response = await axios.get('http://18.221.39.240:8001/api/usuarios');
             setUsuarios(response.data);
         } catch (error) {
             console.error('Error fetching usuarios:', error);
@@ -46,7 +46,7 @@ const Prestamos = () => {
 
     const fetchLibros = async () => {
         try {
-            const response = await axios.get('http://localhost:8005/api/libros');
+            const response = await axios.get('http://18.221.39.240:8005/api/libros');
             setLibros(response.data);
         } catch (error) {
             console.error('Error fetching libros:', error);
@@ -69,9 +69,9 @@ const Prestamos = () => {
     const handleSave = async () => {
         try {
             if (editing) {
-                await axios.put(`http://localhost:8002/api/prestamos/editar/${currentPrestamo.id}`, currentPrestamo);
+                await axios.put(`http://18.221.39.240:8002/api/prestamos/editar/${currentPrestamo.id}`, currentPrestamo);
             } else {
-                await axios.post('http://localhost:8002/api/prestamos/crear', currentPrestamo);
+                await axios.post('http://18.221.39.240:8002/api/prestamos/crear', currentPrestamo);
             }
             fetchPrestamos();
             handleClose();
@@ -88,7 +88,7 @@ const Prestamos = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:8002/api/prestamos/eliminar/${id}`);
+            await axios.delete(`http://18.221.39.240:8002/api/prestamos/eliminar/${id}`);
             fetchPrestamos();
         } catch (error) {
             console.error('Error deleting prestamo:', error);

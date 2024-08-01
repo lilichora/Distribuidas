@@ -26,7 +26,7 @@ const Pagos = () => {
 
     const fetchPagos = async () => {
         try {
-            const response = await axios.get('http://localhost:8003/api/pagos');
+            const response = await axios.get('http://18.221.39.240:8003/api/pagos');
             setPagos(response.data);
         } catch (error) {
             console.error('Error fetching pagos:', error);
@@ -36,7 +36,7 @@ const Pagos = () => {
 
     const fetchUsuarios = async () => {
         try {
-            const response = await axios.get('http://localhost:8001/api/usuarios');
+            const response = await axios.get('http://18.221.39.240:8001/api/usuarios');
             setUsuarios(response.data);
         } catch (error) {
             console.error('Error fetching usuarios:', error);
@@ -46,7 +46,7 @@ const Pagos = () => {
 
     const fetchLibros = async () => {
         try {
-            const response = await axios.get('http://localhost:8005/api/libros');
+            const response = await axios.get('http://18.221.39.240:8005/api/libros');
             setLibros(response.data);
         } catch (error) {
             console.error('Error fetching libros:', error);
@@ -71,9 +71,9 @@ const Pagos = () => {
     const handleSave = async () => {
         try {
             if (editing) {
-                await axios.put(`http://localhost:8003/api/pagos/editar/${currentPago.id}`, currentPago);
+                await axios.put(`http://18.221.39.240:8003/api/pagos/editar/${currentPago.id}`, currentPago);
             } else {
-                await axios.post('http://localhost:8003/api/pagos/crear', currentPago);
+                await axios.post('http://18.221.39.240:8003/api/pagos/crear', currentPago);
             }
             fetchPagos();
             handleClose();
@@ -90,7 +90,7 @@ const Pagos = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:8003/api/pagos/eliminar/${id}`);
+            await axios.delete(`http://18.221.39.240:8003/api/pagos/eliminar/${id}`);
             fetchPagos();
         } catch (error) {
             console.error('Error deleting pago:', error);
