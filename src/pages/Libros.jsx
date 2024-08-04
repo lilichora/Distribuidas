@@ -23,7 +23,7 @@ const Libros = () => {
 
     const fetchLibros = async () => {
         try {
-            const response = await axios.get('http://18.221.39.240:8005/api/libros');
+            const response = await axios.get('http://18.119.120.45:8005/api/libros');
             setLibros(response.data);
         } catch (error) {
             console.error('Error fetching libros:', error);
@@ -49,9 +49,9 @@ const Libros = () => {
     const handleSave = async () => {
         try {
             if (editing) {
-                await axios.put(`http://18.221.39.240:8005/api/libros/editar/${currentLibro.id}`, currentLibro);
+                await axios.put(`http://18.119.120.45:8005/api/libros/editar/${currentLibro.id}`, currentLibro);
             } else {
-                await axios.post('http://18.221.39.240:8005/api/libros/crear', currentLibro);
+                await axios.post('http://18.119.120.45:8005/api/libros/crear', currentLibro);
             }
             fetchLibros();
             handleClose();
@@ -68,7 +68,7 @@ const Libros = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://18.221.39.240:8005/api/libros/eliminar/${id}`);
+            await axios.delete(`http://18.119.120.45:8005/api/libros/eliminar/${id}`);
             fetchLibros();
         } catch (error) {
             console.error('Error deleting libro:', error);

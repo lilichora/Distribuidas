@@ -24,7 +24,7 @@ const Notificaciones = () => {
 
     const fetchNotificaciones = async () => {
         try {
-            const response = await axios.get('http://18.221.39.240:8004/api/notificaciones');
+            const response = await axios.get('http://18.119.120.45:8004/api/notificaciones');
             setNotificaciones(response.data);
         } catch (error) {
             console.error('Error fetching notificaciones:', error);
@@ -34,7 +34,7 @@ const Notificaciones = () => {
 
     const fetchUsuarios = async () => {
         try {
-            const response = await axios.get('http://18.221.39.240:8001/api/usuarios');
+            const response = await axios.get('http://18.119.120.45:8001/api/usuarios');
             setUsuarios(response.data);
         } catch (error) {
             console.error('Error fetching usuarios:', error);
@@ -59,9 +59,9 @@ const Notificaciones = () => {
     const handleSave = async () => {
         try {
             if (editing) {
-                await axios.put(`http://18.221.39.240:8004/api/notificaciones/editar/${currentNotificacion.id}`, currentNotificacion);
+                await axios.put(`http://18.119.120.45:8004/api/notificaciones/editar/${currentNotificacion.id}`, currentNotificacion);
             } else {
-                await axios.post('http://18.221.39.240:8004/api/notificaciones/crear', currentNotificacion);
+                await axios.post('http://18.119.120.45:8004/api/notificaciones/crear', currentNotificacion);
             }
             fetchNotificaciones();
             handleClose();
@@ -78,7 +78,7 @@ const Notificaciones = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://18.221.39.240:8004/api/notificaciones/eliminar/${id}`);
+            await axios.delete(`http://18.119.120.45:8004/api/notificaciones/eliminar/${id}`);
             fetchNotificaciones();
         } catch (error) {
             console.error('Error deleting notificacion:', error);

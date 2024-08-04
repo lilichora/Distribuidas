@@ -18,7 +18,7 @@ const Usuarios = () => {
 
     const fetchUsuarios = async () => {
         try {
-            const response = await axios.get('http://18.221.39.240:8001/api/usuarios');
+            const response = await axios.get('http://18.119.120.45:8001/api/usuarios');
             setUsuarios(response.data);
         } catch (error) {
             console.error('Error fetching usuarios:', error);
@@ -37,9 +37,9 @@ const Usuarios = () => {
     const handleSave = async () => {
         try {
             if (editing) {
-                await axios.put(`http://18.221.39.240:8001/api/usuarios/editar/${currentUsuario.id}`, currentUsuario);
+                await axios.put(`http://18.119.120.45:8001/api/usuarios/editar/${currentUsuario.id}`, currentUsuario);
             } else {
-                await axios.post('http://18.221.39.240:8001/api/usuarios/crear', currentUsuario);
+                await axios.post('http://18.119.120.45:8001/api/usuarios/crear', currentUsuario);
             }
             fetchUsuarios();
             handleClose();
@@ -56,7 +56,7 @@ const Usuarios = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://18.221.39.240:8001/api/usuarios/eliminar/${id}`);
+            await axios.delete(`http://18.119.120.45:8001/api/usuarios/eliminar/${id}`);
             fetchUsuarios();
         } catch (error) {
             console.error('Error deleting usuario:', error);
